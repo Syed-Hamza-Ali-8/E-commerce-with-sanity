@@ -123,7 +123,7 @@ const Contact = () => {
               </h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=100091326655402&mibextid=ZbWKwL"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-[#1877F2]"
@@ -132,7 +132,7 @@ const Contact = () => {
                   <FaFacebook size={24} />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/syed_hamza_228?igsh=bGtkNTBzd3hmc3dt"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-[#E4405F]"
@@ -141,7 +141,7 @@ const Contact = () => {
                   <FaInstagram size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/hamza-ali-b72b582ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-[#0A66C2]"
@@ -150,7 +150,7 @@ const Contact = () => {
                   <FaLinkedin size={24} />
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Syed-Hamza-Ali-8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-black"
