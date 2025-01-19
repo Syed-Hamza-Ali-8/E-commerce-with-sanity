@@ -146,14 +146,14 @@ const Header = () => {
               About
             </Link>
             <Link
-              href="/blog"
+              href="/pages/Blogs"
               className="block text-gray-600 hover:text-gray-800"
               onClick={toggleMobileMenu}
             >
               Blog
             </Link>
             <Link
-              href="/contact"
+              href="/pages/Contact"
               className="block text-gray-600 hover:text-gray-800"
               onClick={toggleMobileMenu}
             >
