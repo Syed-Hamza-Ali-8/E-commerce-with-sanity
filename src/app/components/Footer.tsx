@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold text-white">Follow Us</h3>
             <div className="mt-4 flex space-x-4 justify-center md:justify-end">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=100091326655402&mibextid=ZbWKwL"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white"
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                 <FaFacebook size={24} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/syed_hamza_228?igsh=bGtkNTBzd3hmc3dt"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white"
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
                 <FaInstagram size={24} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/hamza-ali-b72b582ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white"
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
                 <FaLinkedin size={24} />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/Syed-Hamza-Ali-8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white"
