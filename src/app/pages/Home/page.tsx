@@ -2,11 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const HomePage = () => {
   return (
     <div className="bg-gray-50">
-      {/* Hero Section */}
       <div
         className="relative h-screen bg-cover bg-center"
         style={{
@@ -34,7 +34,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Featured Products */}
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
@@ -44,11 +43,12 @@ const HomePage = () => {
             Discover the latest in premium cricket equipment.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Product Cards */}
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-              <img
+              <Image
                 src="/HomeSection/gray-nicolls-bat.jpeg"
                 alt="Product 1"
+                width={500}
+                height={350}
                 className="w-full h-48 sm:h-56 object-cover rounded-md mb-4 transition duration-300 filter grayscale hover:grayscale-0"
               />
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
@@ -66,9 +66,11 @@ const HomePage = () => {
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-              <img
+              <Image
                 src="/HomeSection/kookaburra-ball.jpeg"
                 alt="Product 2"
+                width={500}
+                height={350}
                 className="w-full h-48 sm:h-56 object-cover rounded-md mb-4 transition duration-300 filter grayscale hover:grayscale-0"
               />
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
@@ -87,9 +89,11 @@ const HomePage = () => {
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-              <img
+              <Image
                 src="/HomeSection/protection.jpeg"
                 alt="Product 3"
+                width={500}
+                height={350}
                 className="w-full h-48 sm:h-56 object-cover rounded-md mb-4 transition duration-300 filter grayscale hover:grayscale-0"
               />
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
@@ -108,9 +112,11 @@ const HomePage = () => {
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-              <img
+              <Image
                 src="/HomeSection/shoes.jpeg"
                 alt="Product 4"
+                width={500}
+                height={350}
                 className="w-full h-48 sm:h-56 object-cover rounded-md mb-4 transition duration-300 filter grayscale hover:grayscale-0"
               />
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
@@ -128,9 +134,11 @@ const HomePage = () => {
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-              <img
+              <Image
                 src="/HomeSection/clothing.jpeg"
                 alt="Product 5"
+                width={500}
+                height={350}
                 className="w-full h-48 sm:h-56 object-cover rounded-md mb-4 transition duration-300 filter grayscale hover:grayscale-0"
               />
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
@@ -151,7 +159,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* About Us Section */}
       <div className="bg-gray-100 py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
@@ -165,7 +172,7 @@ const HomePage = () => {
           <p className="text-lg sm:text-xl text-gray-600 mb-12">
             With a dedicated team of professionals, we focus on providing
             cutting-edge technology and expert advice to ensure you perform at
-            your best. We're committed to bringing you the latest cricket
+            your best. We&apos;re committed to bringing you the latest cricket
             innovations for your game.
           </p>
           <Link
@@ -178,7 +185,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Customer Testimonials */}
       <div className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
@@ -187,16 +193,17 @@ const HomePage = () => {
           <div className="space-y-8">
             <div className="bg-gray-100 p-6 rounded-lg shadow-md">
               <p className="text-lg sm:text-xl text-gray-600 mb-4">
-                "Cricket Hub's products have elevated my game to the next level!
-                I couldn't be happier with the quality of their gear."
+                &quot;Cricket Hub&apos;s products have elevated my game to the
+                next level! I couldn&apos;t be happier with the quality of their
+                gear.&quot;
               </p>
               <p className="font-semibold text-gray-800">Virat Kohli</p>
               <p className="text-gray-500">Professional Cricketer</p>
             </div>
             <div className="bg-gray-100 p-6 rounded-lg shadow-md">
               <p className="text-lg sm:text-xl text-gray-600 mb-4">
-                "The best cricket bat I have ever used! Cricket Hub offers
-                top-notch gear that is well worth the investment."
+                &quot;The best cricket bat I have ever used! Cricket Hub offers
+                top-notch gear that is well worth the investment.&quot;
               </p>
               <p className="font-semibold text-gray-800">Steve Smith</p>
               <p className="text-gray-500">Cricket Enthusiast</p>
@@ -205,7 +212,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Newsletter Subscription */}
       <div className="bg-blue-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h3 className="text-2xl sm:text-3xl font-bold mb-4">
@@ -228,7 +234,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* CTA Section */}
       <div className="bg-blue-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h3 className="text-2xl sm:text-3xl font-bold mb-4">

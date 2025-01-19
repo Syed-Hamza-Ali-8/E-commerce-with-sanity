@@ -1,3 +1,5 @@
+import { Rule } from "@sanity/types";
+
 export default {
   name: "product",
   title: "Product",
@@ -7,19 +9,19 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule: any) => Rule.required().max(100),
+      validation: (Rule: Rule) => Rule.required().max(100),
     },
     {
       name: "description",
       title: "Description",
       type: "text",
-      validation: (Rule: any) => Rule.required().max(500),
+      validation: (Rule: Rule) => Rule.required().max(500),
     },
     {
       name: "price",
       title: "Price",
       type: "number",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: "category",
@@ -34,7 +36,7 @@ export default {
           "Accessories",
         ],
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: "image",
@@ -43,7 +45,7 @@ export default {
       options: {
         hotspot: true,
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
   ],
 };
