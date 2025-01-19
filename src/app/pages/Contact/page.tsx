@@ -103,7 +103,7 @@ const Contact = () => {
               Contact Information
             </h2>
             <p className="text-gray-600 mb-4">
-              Have questions? Here's how you can reach us:
+              Have questions? Here&apos;s how you can reach us:
             </p>
             <ul className="space-y-4 text-gray-600">
               <li>

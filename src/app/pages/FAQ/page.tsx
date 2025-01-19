@@ -35,13 +35,11 @@ const FAQ = () => {
     return (
         <div className="bg-gray-100 py-12">
             <div className="max-w-5xl mx-auto px-6 lg:px-8">
-                {/* Header */}
                 <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">Frequently Asked Questions</h1>
                 <p className="text-lg text-gray-600 text-center mb-12">
                     Find answers to the most commonly asked questions below.
                 </p>
 
-                {/* FAQ List */}
                 <div className="space-y-4">
                     {faqs.map((faq, index) => (
                         <div
