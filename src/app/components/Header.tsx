@@ -1,18 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { FaShoppingCart } from "react-icons/fa"; 
 
 const Header = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(true);
-  };
-
-  const closeDropdown = () => {
-    setIsDropdownOpen(false);
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -36,62 +28,12 @@ const Header = () => {
             >
               About
             </Link>
-
-            <div
-              className="relative"
-              onMouseEnter={toggleDropdown}
-              onMouseLeave={closeDropdown}
+            <Link
+              href="/pages/Products"
+              className="text-gray-600 hover:text-gray-800"
             >
-              <button className="text-gray-600 hover:text-gray-800">
-                Products
-              </button>
-              {isDropdownOpen && (
-                <div className="absolute bg-white shadow-lg rounded-md mt-2 w-48">
-                  <ul className="py-2">
-                    <li>
-                      <Link
-                        href="/products/cricket-bats"
-                        className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
-                      >
-                        Cricket Bats
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/products/cricket-balls"
-                        className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
-                      >
-                        Cricket Balls
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/products/protections"
-                        className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
-                      >
-                        Protections
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/products/shoes"
-                        className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
-                      >
-                        Shoes
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/products/accessories"
-                        className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
-                      >
-                        Accessories
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
+              Products
+            </Link>
 
             <Link
               href="/pages/Blogs"
@@ -106,6 +48,12 @@ const Header = () => {
               Contact
             </Link>
           </nav>
+
+          <div className="relative">
+            <Link href="/components/Cart">
+              <FaShoppingCart className="h-6 w-6 text-gray-600 hover:text-gray-800 cursor-pointer" />
+            </Link>
+          </div>
 
           <button
             className="md:hidden flex items-center text-gray-600 hover:text-gray-800"
@@ -146,6 +94,13 @@ const Header = () => {
               About
             </Link>
             <Link
+              href="/pages/Products"
+              className="block text-gray-600 hover:text-gray-800"
+              onClick={toggleMobileMenu}
+            >
+              Products
+            </Link>
+            <Link
               href="/pages/Blogs"
               className="block text-gray-600 hover:text-gray-800"
               onClick={toggleMobileMenu}
@@ -159,44 +114,6 @@ const Header = () => {
             >
               Contact
             </Link>
-
-            <div className="space-y-2">
-              <Link
-                href="/products/cricket-bats"
-                className="block text-gray-600 hover:text-gray-800"
-                onClick={toggleMobileMenu}
-              >
-                Cricket Bats
-              </Link>
-              <Link
-                href="/products/cricket-balls"
-                className="block text-gray-600 hover:text-gray-800"
-                onClick={toggleMobileMenu}
-              >
-                Cricket Balls
-              </Link>
-              <Link
-                href="/products/protections"
-                className="block text-gray-600 hover:text-gray-800"
-                onClick={toggleMobileMenu}
-              >
-                Protections
-              </Link>
-              <Link
-                href="/products/shoes"
-                className="block text-gray-600 hover:text-gray-800"
-                onClick={toggleMobileMenu}
-              >
-                Shoes
-              </Link>
-              <Link
-                href="/products/accessories"
-                className="block text-gray-600 hover:text-gray-800"
-                onClick={toggleMobileMenu}
-              >
-                Accessories
-              </Link>
-            </div>
           </div>
         )}
       </div>

@@ -1,8 +1,8 @@
 import { Rule } from "@sanity/types";
 
 export default {
-  name: "product",
-  title: "Product",
+  name: "shoes",
+  title: "Shoes",
   type: "document",
   fields: [
     {
@@ -31,6 +31,16 @@ export default {
         hotspot: true,
       },
       validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: "size",
+      title: "Size",
+      type: "string",
+    },
+    {
+      name: "color",
+      title: "Color",
+      type: "string",
     },
   ],
 };

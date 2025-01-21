@@ -1,8 +1,8 @@
 import { Rule } from "@sanity/types";
 
 export default {
-  name: "product",
-  title: "Product",
+  name: "accessories",
+  title: "Accessories",
   type: "document",
   fields: [
     {

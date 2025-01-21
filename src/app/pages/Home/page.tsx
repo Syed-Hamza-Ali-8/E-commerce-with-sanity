@@ -25,7 +25,7 @@ const HomePage = () => {
             itself.
           </p>
           <Link
-            href="/products"
+            href="/pages/Products"
             passHref
             className="bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-lg text-lg hover:bg-blue-700 transition duration-300"
           >
@@ -243,7 +243,7 @@ const HomePage = () => {
             Explore our collection and discover the perfect gear for you.
           </p>
           <Link
-            href="/products"
+            href="/pages/Products"
             passHref
             className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg hover:bg-gray-100 transition duration-300"
           >
