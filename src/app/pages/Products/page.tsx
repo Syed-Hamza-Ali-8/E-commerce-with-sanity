@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 type Product = {
   _id: string;
   title: string;
-  price: string;
+  price: number;
   description: string;
   imageUrl: string;
 };
@@ -50,7 +50,7 @@ const Products = () => {
     setCart(updatedCart);
 
     setNotification(`${product.title} has been added to your cart!`);
-    setTimeout(() => setNotification(null), 5000);
+    setTimeout(() => setNotification(null), 3000);
   };
 
   const removeFromCart = (productId: string) => {
@@ -68,8 +68,10 @@ const Products = () => {
   );
 
   return (
-    <div className="py-8">
-      <h1 className="text-3xl font-semibold text-center mb-8">Our Products</h1>
+    <div className="py-12 bg-gray-50">
+      <h1 className="text-4xl font-bold text-center mb-10 text-gray-800">
+        Our Products
+      </h1>
 
       {notification && (
         <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-50">
@@ -77,65 +79,68 @@ const Products = () => {
         </div>
       )}
 
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-10">
         <input
           type="text"
           placeholder="Search for products (e.g., bat, ball, shoes)..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          className="w-full max-w-md px-4 py-3 border border-gray-300 rounded-full shadow focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
       </div>
 
-      {/* Loader */}
       {loading ? (
-        <div className="flex justify-center items-center py-8">
+        <div className="flex justify-center items-center py-16">
           <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div
                 key={product._id}
-                className="bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden flex flex-col group relative"
+                className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col"
               >
-                <img
-                  src={product.imageUrl}
-                  alt={product.title}
-                  className="w-full h-72 object-contain"
-                />
-                <div className="flex flex-col justify-between p-4 h-full">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                    {product.title}
-                  </h2>
-                  <p className="text-gray-600 mb-4 flex-grow">
-                    {product.description}
-                  </p>
-                  <p className="text-lg font-semibold text-gray-800 mb-4">
-                    ${product.price}
-                  </p>
+                <div className="relative overflow-hidden group">
+                  <img
+                    src={product.imageUrl}
+                    alt={product.title}
+                    className="w-full h-72 object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
                 </div>
-
-                <button
-                  onClick={() => {
-                    if (isProductInCart(product._id)) {
-                      removeFromCart(product._id);
-                    } else {
-                      addToCart(product);
-                    }
-                  }}
-                  className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 py-2 px-6 rounded transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-slate-600 text-white hover:bg-transparent hover:text-slate-600 hover:border hover:border-slate-600 shadow-lg ${
-                    isProductInCart(product._id)
-                      ? "bg-transparent text-slate-600 border-slate-600 cursor-not-allowed"
-                      : ""
-                  }`}
-                  disabled={isProductInCart(product._id)}
-                >
-                  {isProductInCart(product._id)
-                    ? "Added to Cart"
-                    : "Add to Cart"}
-                </button>
+                <div className="flex flex-col justify-between flex-grow p-4">
+                  <div>
+                    <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                      {product.title}
+                    </h2>
+                    <p className="text-gray-600 text-sm mb-4">
+                      {product.description}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-gray-900 mb-4">
+                      ${product.price}
+                    </p>
+                    <button
+                      onClick={() =>
+                        isProductInCart(product._id)
+                          ? removeFromCart(product._id)
+                          : addToCart(product)
+                      }
+                      className={`w-full py-2 text-sm font-medium rounded transition-all duration-300 ${
+                        isProductInCart(product._id)
+                          ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                          : "bg-blue-600 text-white hover:bg-blue-700"
+                      }`}
+                      disabled={isProductInCart(product._id)}
+                    >
+                      {isProductInCart(product._id)
+                        ? "Added to Cart"
+                        : "Add to Cart"}
+                    </button>
+                  </div>
+                </div>
               </div>
             ))
           ) : (
@@ -144,16 +149,11 @@ const Products = () => {
                 <span role="img" aria-label="cricket bat and ball">
                   🏏
                 </span>{" "}
-                Oops! No matches found for &quot;
-                {searchTerm.replace(/'/g, "&apos;")}&quot;!
+                Oops! No matches found for &quot;{searchTerm}&quot;!
               </p>
               <p className="text-gray-600">
-                <span role="img" aria-label="stumps">
-                  🛑
-                </span>{" "}
-                Looks like you have hit the stumps! Try searching for something
-                else like &quot;bat,&quot; &quot;ball,&quot; or
-                &quot;pads.&quot;
+                Try searching for something else like &quot;bat,&quot;
+                &quot;ball,&quot; or &quot;pads.&quot;
               </p>
             </div>
           )}
