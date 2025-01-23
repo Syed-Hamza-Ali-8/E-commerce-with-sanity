@@ -50,7 +50,7 @@ const Products = () => {
     setCart(updatedCart);
 
     setNotification(`${product.title} has been added to your cart!`);
-    setTimeout(() => setNotification(null), 3000);
+    setTimeout(() => setNotification(null), 2000);
   };
 
   const removeFromCart = (productId: string) => {
