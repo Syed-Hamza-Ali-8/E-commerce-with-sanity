@@ -1,6 +1,8 @@
 "use client";
 import { client } from "@/sanity/lib/client";
 import React, { useEffect, useState } from "react";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { FiShoppingCart } from "react-icons/fi";
 
 type Product = {
   _id: string;
@@ -16,6 +18,9 @@ const Products = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [notification, setNotification] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const productsPerPage = 8;
 
   useEffect(() => {
     client
@@ -67,6 +72,18 @@ const Products = () => {
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+  const currentProducts = filteredProducts.slice(
+    (currentPage - 1) * productsPerPage,
+    currentPage * productsPerPage
+  );
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="py-12 bg-gray-50">
       <h1 className="text-4xl font-bold text-center mb-10 text-gray-800">
@@ -85,7 +102,7 @@ const Products = () => {
           placeholder="Search for products (e.g., bat, ball, shoes)..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full max-w-md px-4 py-3 border border-gray-300 rounded-full shadow focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          className="w-full max-w-md px-4 py-3 border border-gray-300 rounded-full shadow focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800 placeholder-gray-500 bg-white"
         />
       </div>
 
@@ -95,8 +112,8 @@ const Products = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
+          {currentProducts.length > 0 ? (
+            currentProducts.map((product) => (
               <div
                 key={product._id}
                 className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col"
@@ -122,22 +139,31 @@ const Products = () => {
                     <p className="text-lg font-bold text-gray-900 mb-4">
                       ${product.price}
                     </p>
+
                     <button
                       onClick={() =>
                         isProductInCart(product._id)
                           ? removeFromCart(product._id)
                           : addToCart(product)
                       }
-                      className={`w-full py-2 text-sm font-medium rounded transition-all duration-300 ${
+                      className={`w-full py-2 text-sm font-medium rounded transition-all duration-300 flex items-center justify-center border-2 ${
                         isProductInCart(product._id)
-                          ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                          : "bg-blue-600 text-white hover:bg-blue-700"
+                          ? "border-gray-300 text-gray-500 cursor-not-allowed"
+                          : "border-blue-600 text-blue-600 hover:bg-blue-100"
                       }`}
                       disabled={isProductInCart(product._id)}
                     >
-                      {isProductInCart(product._id)
-                        ? "Added to Cart"
-                        : "Add to Cart"}
+                      {isProductInCart(product._id) ? (
+                        <span className="flex items-center space-x-2">
+                          <AiOutlineCheckCircle className="text-green-500 w-5 h-5" />
+                          <span>Added</span>
+                        </span>
+                      ) : (
+                        <span className="flex items-center space-x-2">
+                          <FiShoppingCart className="w-5 h-5" />
+                          <span>Add to Cart</span>
+                        </span>
+                      )}
                     </button>
                   </div>
                 </div>
@@ -157,6 +183,24 @@ const Products = () => {
               </p>
             </div>
           )}
+        </div>
+      )}
+
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-10 space-x-2">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => handlePageChange(index + 1)}
+              className={`px-6 py-3 rounded-full transition-all duration-300 ease-in-out transform ${
+                currentPage === index + 1
+                  ? "bg-black text-white scale-105 shadow-xl"
+                  : "bg-gray-300 text-gray-800 hover:bg-black hover:text-white"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
         </div>
       )}
     </div>

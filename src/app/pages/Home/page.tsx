@@ -39,7 +39,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="py-20 bg-white">
+      <div className="py-20 mt-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
             Featured Products
@@ -81,7 +81,7 @@ const HomePage = () => {
                     Premium quality {product} designed for maximum performance.
                   </p>
                   <Link
-                    href={`/products/${product}`}
+                    href={`/${product}`}
                     passHref
                     className="text-blue-600 hover:text-blue-700 transition duration-300"
                   >
@@ -95,14 +95,14 @@ const HomePage = () => {
       </div>
 
       <div
-        className="relative h-96 bg-cover bg-center"
+        className="relative h-96 mt-24 bg-cover bg-center"
         style={{
           backgroundImage: "url('/HomeSection/KIT.webp')",
           backgroundPosition: "center",
         }}
       ></div>
 
-      <div className="py-20 bg-gray-100">
+      <div className="py-20 mt-32 bg-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-10">
             What Players Are Saying
@@ -159,7 +159,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="py-16 bg-blue-600 text-center text-white">
+      <div className="py-16 mb-16 bg-blue-600 text-center text-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">Stay Updated</h2>
           <p className="text-lg mb-8">
@@ -170,9 +170,9 @@ const HomePage = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-4 py-2 rounded-l-lg focus:outline-none"
+              className="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 placeholder-gray-500 bg-white"
             />
-            <button className="bg-blue-700 px-6 py-2 rounded-r-lg hover:bg-blue-800 transition duration-300">
+            <button className="bg-blue-700 px-6 py-2 rounded-r-lg text-white hover:bg-blue-800 transition duration-300">
               Subscribe
             </button>
           </div>

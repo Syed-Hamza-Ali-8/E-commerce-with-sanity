@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaShoppingCart } from "react-icons/fa"; 
+import { FaShoppingCart, FaUserPlus } from "react-icons/fa";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,9 +49,14 @@ const Header = () => {
             </Link>
           </nav>
 
-          <div className="relative">
+          <div className="relative flex items-center space-x-4">
+            {" "}
             <Link href="/components/Cart">
               <FaShoppingCart className="h-6 w-6 text-gray-600 hover:text-gray-800 cursor-pointer" />
+            </Link>
+            <Link href="/componts/Signup">
+              {" "}
+              <FaUserPlus className="h-6 w-6 text-gray-600 hover:text-gray-800 cursor-pointer" />
             </Link>
           </div>
 
