@@ -54,7 +54,7 @@ const Header = () => {
             <Link href="/components/Cart">
               <FaShoppingCart className="h-6 w-6 text-gray-600 hover:text-gray-800 cursor-pointer" />
             </Link>
-            <Link href="/componts/Signup">
+            <Link href="/components/Signup">
               {" "}
               <FaUserPlus className="h-6 w-6 text-gray-600 hover:text-gray-800 cursor-pointer" />
             </Link>
