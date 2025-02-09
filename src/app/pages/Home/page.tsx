@@ -82,9 +82,9 @@ const HomePage = () => {
             {[
               "Cricket Bats",
               "Cricket Balls",
-              "Protection",
-              "Shoes",
-              "Clothing",
+              "protection",
+              "shoes",
+              "clothing",
             ].map((product, idx) => (
               <SwiperSlide key={idx}>
                 <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
