@@ -39,7 +39,28 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="py-20 mt-20 bg-white">
+      <div className="py-20 bg-white flex justify-center">
+        <div className="max-w-7xl mt-20 w-full mx-auto px-6 text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
+            Pakistan Champions Trophy 2025 – The Jersey of Champions!
+          </h2>
+          <p className="text-lg text-gray-600 mb-12">
+            Show your support with the official Pakistan Champions Trophy 2025
+            jersey.
+          </p>
+          <div className="flex justify-center w-full">
+            <Image
+              src="/Home/Ct25_jersey.jpg"
+              alt="Pakistan Champions Trophy 2025 Jersey"
+              width={1200}
+              height={800}
+              className="w-full max-w-7xl sm:h-[500px] md:h-[600px] lg:h-auto bg-[#A7D129] rounded-lg shadow-lg transition duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="py-20 mt-10 sm:mt-10 md:mt-16 lg:mt-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
             Featured Products
@@ -61,9 +82,9 @@ const HomePage = () => {
             {[
               "Cricket Bats",
               "Cricket Balls",
-              "protection",
-              "shoes",
-              "clothing",
+              "Protection",
+              "Shoes",
+              "Clothing",
             ].map((product, idx) => (
               <SwiperSlide key={idx}>
                 <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
@@ -119,10 +140,10 @@ const HomePage = () => {
           >
             {[
               {
-                name: "Virat Kohli",
+                name: "Kane Williamson",
                 feedback:
                   "The best cricket bat I’ve ever used! Highly recommend to serious players.",
-                image: "/HomeSection/Virat_kohli.jpg",
+                image: "/HomeSection/Kane_Williamson.jpg",
               },
               {
                 name: "Pat Cummins",
@@ -139,13 +160,15 @@ const HomePage = () => {
             ].map((testimonial, idx) => (
               <SwiperSlide key={idx}>
                 <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    width={150}
-                    height={150}
-                    className="w-36 h-36 rounded-full mx-auto mb-4"
-                  />
+                  <div className="w-48 h-48 mx-auto mb-4 flex items-center justify-center">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={200}
+                      height={200}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                   <p className="text-lg text-gray-600 mb-4">
                     {testimonial.feedback}
                   </p>
