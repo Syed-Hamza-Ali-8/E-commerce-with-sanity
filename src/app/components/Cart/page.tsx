@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 type Product = {
   _id: string;
   title: string;
-  price: number; // Price stored as a number
+  price: number;
   description: string;
   imageUrl: string;
   quantity: number;
@@ -17,14 +17,18 @@ const Cart = () => {
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const sanitizedCart = storedCart.map((product: Product) => ({
-      ...product,
-      price:
-        typeof product.price === "string"
-          ? parseFloat(product.price)
-          : product.price || 0, // Ensure price is a valid number
-      quantity: Math.max(product.quantity, 1), // Ensure quantity is at least 1
+
+    const sanitizedCart = storedCart.map((product: Partial<Product>) => ({
+      _id: product._id || "",
+      title: product.title || "Unknown Product",
+      price: isNaN(parseFloat(String(product.price)))
+        ? 0
+        : parseFloat(String(product.price)),
+      description: product.description || "",
+      imageUrl: product.imageUrl || "",
+      quantity: Math.max(product.quantity || 1, 1),
     }));
+
     setCart(sanitizedCart);
     setLoading(false);
   }, []);
@@ -44,13 +48,8 @@ const Cart = () => {
         const newQuantity =
           operation === "increment"
             ? product.quantity + 1
-            : product.quantity > 1
-              ? product.quantity - 1
-              : 1;
-        return {
-          ...product,
-          quantity: newQuantity,
-        };
+            : Math.max(product.quantity - 1, 1);
+        return { ...product, quantity: newQuantity };
       }
       return product;
     });
@@ -60,7 +59,7 @@ const Cart = () => {
   };
 
   const calculateTotalPrice = (product: Product) => {
-    const price = product.price;
+    const price = isNaN(product.price) ? 0 : product.price;
     return price * product.quantity;
   };
 
@@ -108,7 +107,6 @@ const Cart = () => {
                     ${product.price.toFixed(2)}
                   </p>
 
-                  {/* Quantity Control Section */}
                   <div className="flex justify-center items-center mt-4 space-x-4 mb-4">
                     <button
                       onClick={() => updateQuantity(product._id, "decrement")}
@@ -146,7 +144,6 @@ const Cart = () => {
           </div>
         )}
 
-        {/* Cart Summary Section */}
         <div className="mt-12 sm:mt-8 text-center flex flex-col items-center">
           <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
             Total Items: <span className="text-blue-600">{totalItems}</span>

@@ -9,9 +9,9 @@ const Signup = () => {
     password: "",
   });
 
-  const [error, setError] = useState<string>(""); 
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false); 
-  const [isSuccess, setIsSuccess] = useState<boolean>(false); 
+  const [error, setError] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -30,12 +30,12 @@ const Signup = () => {
       return;
     }
 
-    setIsSubmitting(true); 
+    setIsSubmitting(true);
 
     setTimeout(() => {
       console.log("Form submitted:", formData);
-      setIsSuccess(true); 
-      setFormData({ username: "", email: "", password: "" }); 
+      setIsSuccess(true);
+      setFormData({ username: "", email: "", password: "" });
       setIsSubmitting(false);
     }, 2000);
   };

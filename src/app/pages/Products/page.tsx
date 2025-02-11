@@ -33,10 +33,8 @@ const Products = () => {
       }`
       )
       .then((data) => {
-        const sortedProducts = data.sort((a: Product, b: Product) =>
-          a.title.localeCompare(b.title)
-        );
-        setProducts(sortedProducts);
+        const shuffledProducts = data.sort(() => Math.random() - 0.5);
+        setProducts(shuffledProducts);
         setLoading(false);
       })
       .catch((err) => {
@@ -49,12 +47,6 @@ const Products = () => {
   }, []);
 
   const addToCart = (product: Product) => {
-    const user = JSON.parse(localStorage.getItem("user") || "null");
-
-    if (!user) {
-      window.location.href = "/components/Signup";
-      return;
-    }
 
     const updatedCart = [...cart, product];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -128,7 +120,7 @@ const Products = () => {
                     <img
                       src={product.imageUrl}
                       alt={product.title}
-                      className="w-full h-72 object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-72 object-contain transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl"
                     />
                   </div>
                   <div className="flex flex-col justify-between flex-grow p-4">
@@ -184,16 +176,16 @@ const Products = () => {
           </div>
 
           {totalPages > 1 && (
-            <div className="flex justify-center mt-8 space-x-4">
+            <div className="flex justify-center mt-8 space-x-2">
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className="px-4 py-2 border rounded disabled:opacity-50"
+                className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
               >
-                Previous
+                ⬅ Previous
               </button>
 
-              <span className="px-4 py-2 border rounded bg-gray-200">
+              <span className="px-5 py-2 text-white bg-blue-600 rounded-lg shadow-md font-semibold">
                 Page {currentPage} of {totalPages}
               </span>
 
@@ -202,9 +194,9 @@ const Products = () => {
                   setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                 }
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 border rounded disabled:opacity-50"
+                className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
               >
-                Next
+                Next ➡
               </button>
             </div>
           )}
